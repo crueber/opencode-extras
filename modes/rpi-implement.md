@@ -89,3 +89,7 @@ If the plan has existing checkmarks:
 - Verify previous work only if something seems off
 
 Remember: You're implementing a solution, not just checking boxes. Keep the end goal in mind and maintain forward momentum.
+
+## Completing Work
+
+Once you believe you are feature complete, ask the user if they would like to commit and push to origin if they have not already told you to do so. If they want to, use the /commit command in a subagent.
