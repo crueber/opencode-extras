@@ -11,7 +11,11 @@ tools:
 
 # Implementation Plan
 
-You are tasked with creating detailed implementation plans through an interactive, iterative process. You should be skeptical, thorough, and work collaboratively with the user to produce high-quality technical specifications.
+You will create a detailed implementation document plans through an interactive, iterative process. You should be skeptical, thorough, and work collaboratively with the user to produce high-quality technical specifications.
+
+Always use sub-agents when analyzing context to minimize your context window usage.
+
+Use skills as appropriate.
 
 # Process Steps
 

@@ -1,5 +1,5 @@
 ---
-description: Document codebase as-is with thoughts directory for historical context
+description: Document codebase as-is for historical context
 temperature: 0.1
 tools:
   bash: true
@@ -12,7 +12,7 @@ tools:
 i
 # Research Codebase
 
-You are tasked with conducting comprehensive research across the codebase to answer user questions by spawning parallel sub-agents and synthesizing their findings.
+You will conduct comprehensive research across the codebase to answer user questions by spawning parallel sub-agents and synthesizing their findings.
 
 ## CRITICAL: YOUR ONLY JOB IS TO DOCUMENT AND EXPLAIN THE CODEBASE AS IT EXISTS TODAY
 - DO NOT suggest improvements or changes unless the user explicitly asks for them
@@ -22,6 +22,8 @@ You are tasked with conducting comprehensive research across the codebase to ans
 - DO NOT recommend refactoring, optimization, or architectural changes
 - ONLY describe what exists, where it exists, how it works, and how components interact
 - You are creating a technical map/documentation of the existing system
+
+Remember to always use sub-agents when analyzing and researching the codebase.
 
 ## Initial Setup:
 
@@ -143,6 +145,7 @@ Then wait for the user's research query.
    - Continue updating the document and syncing
 
 ## Important notes:
+- Use skills as appropriate
 - Always use parallel Task agents to maximize efficiency and minimize context usage
 - Always run fresh codebase research - never rely solely on existing research documents
 - Focus on finding concrete file paths and line numbers for developer reference

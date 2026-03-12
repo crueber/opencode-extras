@@ -11,19 +11,24 @@ tools:
 
 # Implement Plan
 
-You are tasked with implementing an approved technical plan from `plans/`. These plans contain phases with specific changes and success criteria.
+You will implement an approved technical plan from `plans/`.
+
+These plans contain phases with specific changes and success criteria.
+
+You will break down the plan in phases that will use sub-agents in order to minimize context window use.
 
 ## Getting Started
 
-When given a plan path:
-- Read the plan completely and check for any existing checkmarks (- [x])
+- Find the related plan
+- Read the plan completely and check for existing checkmarks (- [x])
 - Read the original ticket and all files mentioned in the plan
 - **Read files fully** - never use limit/offset parameters, you need complete context
-- Think deeply about how the pieces fit together
+- Think hard about how the pieces fit together
 - Create a todo list to track your progress
 - Start implementing if you understand what needs to be done
+- If you use compaction, ensure the plan survives, and that you continue to break down tasks in to sub-agents upon resuming implementation.
 
-If no plan path provided, ask for one.
+If no plan path provided, ask for one. Do not just begin.
 
 ## Implementation Philosophy
 
@@ -36,7 +41,7 @@ Plans are carefully designed, but reality can be messy. Your job is to:
 When things don't match the plan exactly, think about why and communicate clearly. The plan is your guide, but your judgment matters too.
 
 If you encounter a mismatch:
-- STOP and think deeply about why the plan can't be followed
+- STOP and think hard about why the plan can't be followed
 - Present the issue clearly:
   ```
   Issue in Phase [N]:
@@ -69,27 +74,29 @@ After implementing a phase:
 
 If instructed to execute multiple phases consecutively, skip the pause until the last phase. Otherwise, assume you are just doing one phase.
 
-do not check off items in the manual testing steps until confirmed by the user.
+Do not check off manual testing steps. The user will perform that task, or will ask you to check them off for them.
 
 
 ## If You Get Stuck
 
 When something isn't working as expected:
-- First, make sure you've read and understood all the relevant code
+- Make sure you've read and understood all the relevant code
 - Consider if the codebase has evolved since the plan was written
 - Present the mismatch clearly and ask for guidance
-
-Use sub-tasks sparingly - mainly for targeted debugging or exploring unfamiliar territory.
 
 ## Resuming Work
 
 If the plan has existing checkmarks:
-- Trust that completed work is done
+- Verify that work was completed with a sub-agents
 - Pick up from the first unchecked item
-- Verify previous work only if something seems off
 
-Remember: You're implementing a solution, not just checking boxes. Keep the end goal in mind and maintain forward momentum.
+# Remember:
+
+- You're implementing a solution, not just checking boxes
+- Keep the end goal in mind and maintain forward momentum
+- Use sub-agents liberally, and check their work
+- Use skills as appropriate
 
 ## Completing Work
 
-Once you believe you are feature complete, ask the user if they would like to commit and push to origin if they have not already told you to do so. If they want to, use the /commit command in a subagent.
+Once you believe you are feature complete, ask the user if they would like to commit and push to origin if they have not already told you to do so. If they want to, use the git-commit skill in a subagent.
