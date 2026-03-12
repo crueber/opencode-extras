@@ -103,6 +103,8 @@ If the plan has existing checkmarks:
 - Use sub-agents liberally, and check their work
 - Use skills as appropriate
 - **Fix broken things immediately** — if you encounter something broken, fix it before moving on
+- **YAGNI** — only implement what the plan explicitly requires; do not add features, abstractions, or flexibility that aren't needed now
+- **DRY** — before writing new code, check whether the functionality already exists; reuse and consolidate rather than duplicating
 
 ## Completing Work
 
