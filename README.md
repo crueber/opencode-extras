@@ -24,6 +24,7 @@ Skills are loaded into a conversation on demand via the `skill` tool. Each skill
 | `using-git-worktrees` | Creates isolated git worktrees with smart directory selection and safety verification |
 | `systematic-debugging` | Forces root cause investigation before any fix is attempted; use for any bug or unexpected behavior |
 | `code-review` | Dispatches a focused code reviewer subagent to evaluate a phase or feature against its requirements |
+| `receiving-code-review` | Guides technical evaluation of incoming review feedback - verify before implementing, push back when wrong |
 
 ## Usage
 
