@@ -59,13 +59,16 @@ After implementing a phase:
 - Fix any issues before proceeding
 - Update your progress in both the plan and your todos
 - Check off completed items in the plan file itself using Edit
-- **Request a code review**: Use the code-review skill to dispatch a reviewer subagent. Fix any Critical or Important issues before proceeding. Note Minor issues for later.
-- **Pause for human verification**: After code review and all automated verification pass, pause and inform the human that the phase is ready for manual testing. Use this format:
+- **Request a code review**: Use the code-review skill to dispatch a reviewer subagent. When feedback comes back, use the receiving-code-review skill to evaluate and respond — verify before implementing, push back if the feedback is wrong. Fix all Critical and Important issues before proceeding. Note Minor issues for later.
+- **Pause for human verification**: After code review passes and all automated checks are green, pause and inform the user that the phase is ready for manual testing. Use this format:
   ```
   Phase [N] Complete - Ready for Manual Verification
 
   Automated verification passed:
   - [List automated checks that passed]
+
+  Code review passed:
+  - [List any issues found and fixed, or "No issues found"]
 
   Please perform the manual verification steps listed in the plan:
   - [List manual verification items from the plan]
