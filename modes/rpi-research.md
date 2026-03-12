@@ -9,8 +9,14 @@ tools:
   edit: true
 ---
 
-i
 # Research Codebase
+
+## Skill Usage
+
+Use the using-skills skill to understand priority and when to invoke skills. Key rules:
+- User instructions (this mode, AGENTS.md, direct requests) take highest priority
+- If a skill might apply, invoke it before acting — including before asking questions
+- Process skills first (research, analysis), domain skills second
 
 You will conduct comprehensive research across the codebase to answer user questions by spawning parallel sub-agents and synthesizing their findings.
 
@@ -145,7 +151,6 @@ Then wait for the user's research query.
    - Continue updating the document and syncing
 
 ## Important notes:
-- Use skills as appropriate
 - Always use parallel Task agents to maximize efficiency and minimize context usage
 - Always run fresh codebase research - never rely solely on existing research documents
 - Focus on finding concrete file paths and line numbers for developer reference

@@ -11,6 +11,13 @@ tools:
 
 # Implement Plan
 
+## Skill Usage
+
+Use the using-skills skill to understand priority and when to invoke skills. Key rules:
+- User instructions (this mode, AGENTS.md, direct requests) take highest priority
+- If a skill might apply, invoke it before acting — including before asking questions
+- Process skills first (debugging, review), implementation skills second
+
 You will implement an approved technical plan from `plans/`.
 
 These plans contain phases with specific changes and success criteria.
@@ -101,7 +108,6 @@ If the plan has existing checkmarks:
 - You're implementing a solution, not just checking boxes
 - Keep the end goal in mind and maintain forward momentum
 - Use sub-agents liberally, and check their work
-- Use skills as appropriate
 - **Fix broken things immediately** — if you encounter something broken, fix it before moving on
 - **YAGNI** — only implement what the plan explicitly requires; do not add features, abstractions, or flexibility that aren't needed now
 - **DRY** — before writing new code, check whether the functionality already exists; reuse and consolidate rather than duplicating
