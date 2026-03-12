@@ -109,7 +109,9 @@ You MUST complete each phase before proceeding to the next.
 
 5. **Trace Data Flow**
 
-   When the error is deep in a call stack:
+   When the error is deep in a call stack, see `root-cause-tracing.md` in this skill directory for the complete backward tracing technique.
+
+   Quick version:
    - Where does the bad value originate?
    - What called this with the bad value?
    - Keep tracing up until you find the source
@@ -260,3 +262,11 @@ If systematic investigation reveals the issue is truly environmental, timing-dep
 4. Add monitoring/logging for future investigation
 
 Note: 95% of "no root cause" cases are incomplete investigation.
+
+## Supporting Techniques
+
+These files live alongside this skill in `skills/systematic-debugging/` and provide deeper guidance on specific techniques:
+
+- **`root-cause-tracing.md`** — Trace bugs backward through the call stack to find the original trigger
+- **`defense-in-depth.md`** — Add validation at multiple layers after finding root cause to make the bug structurally impossible
+- **`condition-based-waiting.md`** — Replace arbitrary timeouts with condition polling to eliminate flaky tests

@@ -83,6 +83,7 @@ When something isn't working as expected:
 - Make sure you've read and understood all the relevant code
 - Consider if the codebase has evolved since the plan was written
 - Present the mismatch clearly and ask for guidance
+- Use the systematic-debugging skill for any bug or unexpected behavior — do not attempt fixes without root cause investigation first
 
 ## Resuming Work
 
