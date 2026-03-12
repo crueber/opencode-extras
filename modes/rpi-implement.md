@@ -19,6 +19,7 @@ You will break down the plan in phases that will use sub-agents in order to mini
 
 ## Getting Started
 
+- **Set up a worktree**: Use the using-git-worktrees skill to create an isolated workspace before making any changes
 - Find the related plan
 - Read the plan completely and check for existing checkmarks (- [x])
 - Read the original ticket and all files mentioned in the plan
@@ -105,4 +106,6 @@ If the plan has existing checkmarks:
 
 ## Completing Work
 
-Once you believe you are feature complete, ask the user if they would like to commit and push to origin if they have not already told you to do so. If they want to, use the git-commit skill in a subagent.
+Once you believe you are feature complete:
+- Use the finishing-development-branch skill to verify tests, present merge/PR/discard options, and clean up the worktree
+- The finishing-development-branch skill handles committing, pushing, and worktree removal — do not do these manually
