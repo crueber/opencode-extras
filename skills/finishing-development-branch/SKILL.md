@@ -88,6 +88,22 @@ EOF
 )"
 ```
 
+**If the remote is GitHub and you are the sole contributor to the repo**, auto-merge immediately after creating the PR:
+
+```bash
+# Check if sole contributor (only one author in log)
+git log --format='%ae' | sort -u
+
+# If only one unique author, auto-merge:
+gh pr merge --merge --delete-branch
+```
+
+If CI checks are required before merge, use `--auto` instead:
+
+```bash
+gh pr merge --merge --delete-branch --auto
+```
+
 Then: Cleanup worktree (Step 5)
 
 #### Option 3: Keep As-Is
@@ -132,12 +148,12 @@ For Option 3: keep the worktree.
 
 ## Quick Reference
 
-| Option | Merge | Push | Keep Worktree | Cleanup Branch |
-|--------|-------|------|---------------|----------------|
-| 1. Merge locally | yes | - | - | yes |
-| 2. Create PR | - | yes | yes | - |
-| 3. Keep as-is | - | - | yes | - |
-| 4. Discard | - | - | - | yes (force) |
+| Option | Merge | Push | Auto-merge (sole contributor + GitHub) | Keep Worktree | Cleanup Branch |
+|--------|-------|------|----------------------------------------|---------------|----------------|
+| 1. Merge locally | yes | - | - | - | yes |
+| 2. Create PR | - | yes | yes | yes | - |
+| 3. Keep as-is | - | - | - | yes | - |
+| 4. Discard | - | - | - | - | yes (force) |
 
 ## Red Flags
 
