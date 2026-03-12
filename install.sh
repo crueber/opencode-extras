@@ -27,6 +27,22 @@ cleanup_stale_links() {
   done
 }
 
+link_file() {
+  local src_file="${SCRIPT_DIR}/$1"
+  local dest_file="${OPENCODE_CONFIG}/$1"
+
+  [ -e "$src_file" ] || return 0
+
+  if [ -L "$dest_file" ]; then
+    echo "  already linked: $1"
+  elif [ -e "$dest_file" ]; then
+    echo "  skipping (file exists, not a symlink): $1"
+  else
+    ln -s "$src_file" "$dest_file"
+    echo "  linked: $1"
+  fi
+}
+
 link_files() {
   local src_dir="${SCRIPT_DIR}/$1"
   local dest_dir="${OPENCODE_CONFIG}/$1"
@@ -61,4 +77,5 @@ cleanup_stale_links "skills"
 link_files "commands"
 link_files "modes"
 link_files "skills"
+link_file "opencode.json"
 echo "Done."
