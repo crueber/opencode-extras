@@ -1,10 +1,11 @@
 ---
-description: Document codebase as-is with thoughts directory for historical context
+name: research-code
+description: Document codebase as-is for historical context
 ---
 
 # Research Codebase
 
-You are tasked with conducting comprehensive research across the codebase to answer user questions by spawning parallel sub-agents and synthesizing their findings.
+You will conduct a comprehensive research across the codebase to answer user questions by spawning parallel sub-agents and synthesizing their findings.
 
 ## CRITICAL: YOUR ONLY JOB IS TO DOCUMENT AND EXPLAIN THE CODEBASE AS IT EXISTS TODAY
 - DO NOT suggest improvements or changes unless the user explicitly asks for them
@@ -34,9 +35,9 @@ Then wait for the user's research query.
 
 2. **Analyze and decompose the research question:**
    - Break down the user's query into composable research areas
-   - Take time to ultrathink about the underlying patterns, connections, and architectural implications the user might be seeking
+   - Take time to think hard about the underlying patterns, connections, and architectural implications the user might be seeking
    - Identify specific components, patterns, or concepts to investigate
-   - Create a research plan using TodoWrite to track all subtasks
+   - Create a research plan using todos to track all subtasks
    - Consider which directories, files, or architectural patterns are relevant
 
 3. **Spawn parallel sub-agent tasks for comprehensive research:**
@@ -46,7 +47,7 @@ Then wait for the user's research query.
 
    **For web research (only if user explicitly asks):**
    - Use the **web-search** command for external documentation and resources
-   - IF you use web-research agents, instruct them to return LINKS with their findings, and please INCLUDE those links in your final report
+   - IF you use web-research agents, instruct them to return LINKS with their findings, and INCLUDE those links in your final report
 
 4. **Wait for all sub-agents to complete and synthesize findings:**
    - IMPORTANT: Wait for ALL sub-agent tasks to complete before proceeding
@@ -141,3 +142,4 @@ Then wait for the user's research query.
   - Update frontmatter when adding follow-up research
   - Use snake_case for multi-word field names (e.g., `last_updated`, `git_commit`)
   - Tags should be relevant to the research topic and components studied
+

@@ -9,6 +9,24 @@ if [ ! -d "$OPENCODE_CONFIG" ]; then
   exit 1
 fi
 
+cleanup_stale_links() {
+  local dest_dir="${OPENCODE_CONFIG}/$1"
+
+  [ -d "$dest_dir" ] || return 0
+
+  for dest_file in "${dest_dir}"/*; do
+    [ -L "$dest_file" ] || continue
+    local target
+    target="$(readlink "$dest_file")"
+    # Only touch symlinks that point into this repo
+    [[ "$target" == "${SCRIPT_DIR}"/* ]] || continue
+    if [ ! -e "$dest_file" ]; then
+      rm "$dest_file"
+      echo "  removed stale link: ${1}/$(basename "$dest_file")"
+    fi
+  done
+}
+
 link_files() {
   local src_dir="${SCRIPT_DIR}/$1"
   local dest_dir="${OPENCODE_CONFIG}/$1"
@@ -37,6 +55,10 @@ link_files() {
 }
 
 echo "Installing opencode-extras symlinks..."
+cleanup_stale_links "commands"
+cleanup_stale_links "modes"
+cleanup_stale_links "skills"
 link_files "commands"
 link_files "modes"
+link_files "skills"
 echo "Done."

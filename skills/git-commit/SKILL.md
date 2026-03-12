@@ -1,10 +1,15 @@
 ---
-description: Create git commits with user approval and no Claude attribution
+name: git-commit
+description: Instructions for creating a git commit with user approval
+license: MIT
+compatibility: opencode
+metadata:
+  workflow: github
 ---
 
 # Commit Changes
 
-You are tasked with creating git commits for the changes made during this session.
+You will create a set of git commits for the changes made in the repository requested.
 
 ## Process:
 
@@ -36,6 +41,7 @@ You are tasked with creating git commits for the changes made during this sessio
 - Do not include any "Generated with <AI>" messages
 - Do not add "Co-Authored-By" lines
 - Write commit messages as if the user wrote them
+- If a commit is lengthy or processing more than a few files, then use subagents. 
 
 ## Remember:
 - You have the full context of what was done in this session

@@ -32,4 +32,5 @@ remove_links() {
 echo "Removing opencode-extras symlinks..."
 remove_links "commands"
 remove_links "modes"
+remove_links "skills"
 echo "Done."
