@@ -26,6 +26,7 @@ Skills are loaded into a conversation on demand via the `skill` tool. Each skill
 | `code-review` | Dispatches a focused code reviewer subagent to evaluate a phase or feature against its requirements |
 | `receiving-code-review` | Guides technical evaluation of incoming review feedback - verify before implementing, push back when wrong |
 | `finishing-development-branch` | Verifies tests and presents structured merge/PR/discard options with worktree cleanup |
+| `using-skills` | Establishes instruction priority and the rule for invoking skills before acting |
 
 ## Usage
 
