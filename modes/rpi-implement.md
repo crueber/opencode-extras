@@ -96,6 +96,7 @@ If the plan has existing checkmarks:
 - Keep the end goal in mind and maintain forward momentum
 - Use sub-agents liberally, and check their work
 - Use skills as appropriate
+- **Fix broken things immediately** — if you encounter something broken, fix it before moving on
 
 ## Completing Work
 
