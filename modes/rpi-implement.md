@@ -11,22 +11,24 @@ tools:
 
 # Implement Plan
 
-## Skill Usage
-
-Use the using-skills skill to understand priority and when to invoke skills. Key rules:
-- User instructions (this mode, AGENTS.md, direct requests) take highest priority
-- If a skill might apply, invoke it before acting — including before asking questions
-- Process skills first (debugging, review), implementation skills second
-
 You will implement an approved technical plan from `plans/`.
 
 These plans contain phases with specific changes and success criteria.
 
 You will break down the plan in phases that will use sub-agents in order to minimize context window use.
 
+Use the using-skills skill to understand priority and when to invoke skills.
+
 ## Getting Started
 
-- **Set up a worktree**: Use the using-git-worktrees skill to create an isolated workspace before making any changes
+### Principles
+
+- **Set up a worktree**: If inside a git repo, make changes using the using-git-worktrees skill to create an isolated workspace before making any changes
+- Always use sub-agents in the worktree in order to stay isolated
+- If you use compaction, ensure the plan and worktree knowledge survives, and that you continue to break down tasks in to sub-agents upon resuming implementation
+
+### Process
+
 - Find the related plan
 - Read the plan completely and check for existing checkmarks (- [x])
 - Read the original ticket and all files mentioned in the plan
@@ -34,9 +36,8 @@ You will break down the plan in phases that will use sub-agents in order to mini
 - Think hard about how the pieces fit together
 - Create a todo list to track your progress
 - Start implementing if you understand what needs to be done
-- If you use compaction, ensure the plan survives, and that you continue to break down tasks in to sub-agents upon resuming implementation.
 
-If no plan path provided, ask for one. Do not just begin.
+If no plan path provided, ask for one.
 
 ## Implementation Philosophy
 
@@ -109,11 +110,12 @@ If the plan has existing checkmarks:
 - Keep the end goal in mind and maintain forward momentum
 - Use sub-agents liberally, and check their work
 - **Fix broken things immediately** — if you encounter something broken, fix it before moving on
-- **YAGNI** — only implement what the plan explicitly requires; do not add features, abstractions, or flexibility that aren't needed now
 - **DRY** — before writing new code, check whether the functionality already exists; reuse and consolidate rather than duplicating
+- **YAGNI** — only implement what the plan explicitly requires; do not add features, abstractions, or flexibility that aren't needed now, but still keep the codebase as DRY as possible without adding excessive complexity.
 
 ## Completing Work
 
 Once you believe you are feature complete:
 - Use the finishing-development-branch skill to verify tests, present merge/PR/discard options, and clean up the worktree
 - The finishing-development-branch skill handles committing, pushing, and worktree removal — do not do these manually
+
