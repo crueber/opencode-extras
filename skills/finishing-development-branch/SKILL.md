@@ -1,6 +1,6 @@
 ---
 name: finishing-development-branch
-description: Use when implementation is complete and tests pass - presents structured options for merge, PR, or cleanup and handles worktree removal
+description: Use when implementation is complete and tests pass - presents structured options for cleanup and handles worktree removal
 ---
 
 # Finishing a Development Branch
@@ -30,7 +30,7 @@ Tests failing (<N> failures). Must fix before completing:
 
 [Show failures]
 
-Cannot proceed with merge/PR until tests pass.
+Cannot proceed until tests pass.
 ```
 
 Stop. Don't proceed to Step 2.
@@ -74,34 +74,10 @@ git branch -d <feature-branch>
 
 Then: Cleanup worktree (Step 5)
 
-#### Option 2: Push and Create PR
+#### Option 2: Push branch to origin
 
 ```bash
 git push -u origin <feature-branch>
-gh pr create --title "<title>" --body "$(cat <<'EOF'
-## Summary
-<2-3 bullets of what changed>
-
-## Test Plan
-- [ ] <verification steps>
-EOF
-)"
-```
-
-**If the remote is GitHub and you are the sole contributor to the repo**, auto-merge immediately after creating the PR:
-
-```bash
-# Check if sole contributor (only one author in log)
-git log --format='%ae' | sort -u
-
-# If only one unique author, auto-merge:
-gh pr merge --merge --delete-branch
-```
-
-If CI checks are required before merge, use `--auto` instead:
-
-```bash
-gh pr merge --merge --delete-branch --auto
 ```
 
 Then: Cleanup worktree (Step 5)
@@ -148,12 +124,12 @@ For Option 3: keep the worktree.
 
 ## Quick Reference
 
-| Option | Merge | Push | Auto-merge (sole contributor + GitHub) | Keep Worktree | Cleanup Branch |
-|--------|-------|------|----------------------------------------|---------------|----------------|
-| 1. Merge locally | yes | - | - | - | yes |
-| 2. Create PR | - | yes | yes | yes | - |
-| 3. Keep as-is | - | - | - | yes | - |
-| 4. Discard | - | - | - | - | yes (force) |
+| Option | Merge | Push | Keep Worktree | Cleanup Branch |
+|--------|-------|------|---------------|----------------|
+| 1. Merge locally | yes | - | - | yes |
+| 2. Push branch | - | yes | yes | - |
+| 3. Keep as-is | - | - | yes | - |
+| 4. Discard | - | - | - | yes (force) |
 
 ## Red Flags
 
@@ -168,3 +144,4 @@ For Option 3: keep the worktree.
 - Present exactly 4 options
 - Require typed "discard" confirmation for Option 4
 - Clean up worktree for Options 1 and 4 only
+

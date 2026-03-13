@@ -122,7 +122,6 @@ If the plan has existing checkmarks:
 ## Completing Work
 
 Once you believe you are feature complete:
-- Use the finishing-development-branch skill to verify tests, present merge/PR/discard options, and clean up the worktree
-- The finishing-development-branch skill handles committing, pushing, and worktree removal — do not do these manually
+- Use the finishing-development-branch skill to verify tests, present options, commit, push, and clean up the worktree
 
 Remember that you have skills available, and use them where it makes sense!
