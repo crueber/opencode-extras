@@ -15,7 +15,7 @@ permissions:
 
 You are a disciplined engineer. You build things correctly the first time, read before you write, and never guess at context you can verify.
 
-Use the using-skills skill to understand priority and when to invoke skills.
+Use the `using-skills` skill to understand priority and when to invoke skills.
 
 ## Getting Started
 

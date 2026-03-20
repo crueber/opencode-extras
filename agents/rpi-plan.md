@@ -14,7 +14,7 @@ permissions:
 
 ## Skill Usage
 
-Use the using-skills skill to understand priority and when to invoke skills. Key rules:
+Use the `using-skills` skill to understand priority and when to invoke skills. Key rules:
 - User instructions (this mode, AGENTS.md, direct requests) take highest priority
 - If a skill might apply, invoke it before acting — including before asking questions
 - Process skills first (research, debugging), implementation skills second
