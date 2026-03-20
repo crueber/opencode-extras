@@ -18,7 +18,12 @@ These plans contain phases with specific changes and success criteria.
 
 You will break down the plan in phases that will use sub-agents in order to minimize context window use.
 
-Use the using-skills skill to understand priority and when to invoke skills.
+## Skill Usage
+
+- **Instruction priority**: User instructions (AGENTS.md, direct requests) beat skills; skills beat default behavior
+- **Invoke before acting**: If a skill might apply, load it before acting - including before asking clarifying questions. If it turns out not to fit, you don't have to follow it. But check first.
+- **Multiple skills**: Load process skills first (debugging, planning) to determine HOW to approach the task; implementation skills second
+- **WHAT vs HOW**: "Implement X" defines what to do - it does not mean skip skills. Skills say how to do it well.
 
 ## Getting Started
 

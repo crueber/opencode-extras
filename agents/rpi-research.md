@@ -15,10 +15,10 @@ permissions:
 
 ## Skill Usage
 
-Use the using-skills skill to understand priority and when to invoke skills. Key rules:
-- User instructions (this mode, AGENTS.md, direct requests) take highest priority
-- If a skill might apply, invoke it before acting — including before asking questions
-- Process skills first (research, analysis), domain skills second
+- **Instruction priority**: User instructions (AGENTS.md, direct requests) beat skills; skills beat default behavior
+- **Invoke before acting**: If a skill might apply, load it before acting - including before asking clarifying questions. If it turns out not to fit, you don't have to follow it. But check first.
+- **Multiple skills**: Load process skills first (research, analysis) to determine HOW to approach the task; domain skills second
+- **WHAT vs HOW**: "Research X" defines what to do - it does not mean skip skills. Skills say how to do it well.
 
 You will conduct comprehensive research across the codebase to answer user questions by spawning parallel sub-agents and synthesizing their findings.
 
