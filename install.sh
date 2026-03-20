@@ -34,7 +34,13 @@ link_file() {
   [ -e "$src_file" ] || return 0
 
   if [ -L "$dest_file" ]; then
-    echo "  already linked: $1"
+    local target
+    target="$(readlink "$dest_file")"
+    if [[ "$target" == "${src_file}" ]]; then
+      echo "  already linked: $1"
+    else
+      echo "  skipping (symlink points elsewhere): $1"
+    fi
   elif [ -e "$dest_file" ]; then
     echo "  skipping (file exists, not a symlink): $1"
   else
@@ -60,7 +66,13 @@ link_files() {
     local dest_file="${dest_dir}/${filename}"
 
     if [ -L "$dest_file" ]; then
-      echo "  already linked: ${1}/${filename}"
+      local file_target
+      file_target="$(readlink "$dest_file")"
+      if [[ "$file_target" == "${src_file}" ]]; then
+        echo "  already linked: ${1}/${filename}"
+      else
+        echo "  skipping (symlink points elsewhere): ${1}/${filename}"
+      fi
     elif [ -e "$dest_file" ]; then
       echo "  skipping (file exists, not a symlink): ${1}/${filename}"
     else
@@ -72,10 +84,10 @@ link_files() {
 
 echo "Installing opencode-extras symlinks..."
 cleanup_stale_links "commands"
-cleanup_stale_links "modes"
+cleanup_stale_links "agents"
 cleanup_stale_links "skills"
 link_files "commands"
-link_files "modes"
+link_files "agents"
 link_files "skills"
 link_file "opencode.json"
 echo "Done."

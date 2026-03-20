@@ -1,12 +1,13 @@
 ---
 description: Create detailed implementation plans through interactive research and iteration
 temperature: 0.1
-tools:
-  bash: true
-  read: true
-  grep: true
-  write: true
-  edit: true
+mode: all
+permissions:
+  "*": "ask"
+  bash: "allow"
+  read: "allow"
+  grep: "allow"
+  edit: "allow"
 ---
 
 # Implementation Plan

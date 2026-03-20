@@ -9,9 +9,9 @@ A personal collection of [OpenCode](https://opencode.ai) modes and skills, manag
 ## Repository Structure
 
 ```
-modes/                        # Custom agent modes (.md files with YAML frontmatter)
+agents/                       # Custom agent modes (.md files with YAML frontmatter)
 skills/<skill-name>/SKILL.md  # Reusable skills, one per subdirectory
-install.sh                    # Symlinks modes/ and skills/ into ~/.config/opencode
+install.sh                    # Symlinks agents/ and skills/ into ~/.config/opencode
 remove.sh                     # Removes those symlinks
 README.md                     # Human-facing documentation
 AGENTS.md                     # This file
@@ -51,7 +51,7 @@ There are no single-test or unit-test commands — this repo has no automated te
 - Echo output is prefixed with two spaces for indentation: `echo "  linked: ..."`
 - Scripts must be idempotent — running them multiple times must be safe
 
-## Mode File Conventions (`modes/*.md`)
+## Mode File Conventions (`agents/*.md`)
 
 Each mode file is a Markdown document with a YAML frontmatter block:
 
@@ -138,7 +138,7 @@ description: One or two sentence description loaded by the skill tool
 
 ## Adding a New Mode
 
-1. Create `modes/<name>.md`
+1. Create `agents/<name>.md`
 2. Add YAML frontmatter with `description`, `temperature`, and `tools`
 3. Write the mode body following the conventions above
 4. Run `./install.sh` to verify the symlink is created correctly

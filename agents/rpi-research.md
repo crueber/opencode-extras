@@ -1,12 +1,14 @@
 ---
 description: Document codebase as-is for historical context
 temperature: 0.1
-tools:
-  bash: true
-  read: true
-  grep: true
-  write: true
-  edit: true
+mode: all
+permissions:
+  "*": "ask"
+  bash: "allow"
+  read: "allow"
+  grep: "allow"
+  write: "allow"
+  edit: "allow"
 ---
 
 # Research Codebase

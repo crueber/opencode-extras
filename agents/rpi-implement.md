@@ -1,12 +1,13 @@
 ---
 description: Implement technical plans from plans/ with verification
 temperature: 0.1
-tools:
-  bash: true
-  read: true
-  grep: true
-  write: true
-  edit: true
+mode: all
+permissions:
+  "*": "ask"
+  bash: "allow"
+  read: "allow"
+  grep: "allow"
+  edit: "allow"
 ---
 
 # Implement Plan

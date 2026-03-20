@@ -5,10 +5,12 @@ Personal collection of custom [OpenCode](https://opencode.ai) commands, modes, a
 ## Structure
 
 ```
-modes/      # Custom agent modes (.md files)
-skills/     # Reusable skill instructions loaded on demand (SKILL.md files)
-install.sh  # Symlinks files into ~/.config/opencode
-remove.sh   # Removes those symlinks
+agents/        # Custom agent modes (.md files)
+commands/      # Custom slash commands
+skills/        # Reusable skill instructions loaded on demand (SKILL.md files)
+opencode.json  # OpenCode config (permissions, plugins) - review before installing
+install.sh     # Symlinks files into ~/.config/opencode
+remove.sh      # Removes those symlinks
 ```
 
 ## Skills
@@ -27,6 +29,7 @@ Skills are loaded into a conversation on demand via the `skill` tool. Each skill
 | `receiving-code-review` | Guides technical evaluation of incoming review feedback - verify before implementing, push back when wrong |
 | `finishing-development-branch` | Verifies tests and presents structured merge/PR/discard options with worktree cleanup |
 | `using-skills` | Establishes instruction priority and the rule for invoking skills before acting |
+| `audiobookshelf-api` | Reference for the Audiobookshelf REST API - auth, all endpoint groups, filtering, pagination, and Socket.io events |
 
 ## Usage
 
@@ -36,7 +39,7 @@ Clone this repo anywhere, then run the install script:
 ./install.sh
 ```
 
-The script requires `~/.config/opencode` to already exist (i.e., opencode must be installed). It creates the `modes` and `skills` subdirectories as needed, then symlinks each file from this repo into the appropriate location. Running it again is safe — already-linked files are skipped, and stale symlinks pointing into this repo are cleaned up automatically.
+The script requires `~/.config/opencode` to already exist (i.e., opencode must be installed). It creates the `agents` and `skills` subdirectories as needed, symlinks each file from this repo into the appropriate location, and symlinks `opencode.json` as a top-level config file that controls OpenCode permissions and plugins. Review `opencode.json` before running — it encodes personal preferences. Running the script again is safe — already-linked files are skipped, and stale symlinks pointing into this repo are cleaned up automatically.
 
 To remove the symlinks:
 
