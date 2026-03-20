@@ -39,7 +39,9 @@ link_file() {
     if [[ "$target" == "${src_file}" ]]; then
       echo "  already linked: $1"
     else
-      echo "  skipping (symlink points elsewhere): $1"
+      rm "$dest_file"
+      ln -s "$src_file" "$dest_file"
+      echo "  relinked: $1"
     fi
   elif [ -e "$dest_file" ]; then
     echo "  skipping (file exists, not a symlink): $1"
@@ -71,7 +73,9 @@ link_files() {
       if [[ "$file_target" == "${src_file}" ]]; then
         echo "  already linked: ${1}/${filename}"
       else
-        echo "  skipping (symlink points elsewhere): ${1}/${filename}"
+        rm "$dest_file"
+        ln -s "$src_file" "$dest_file"
+        echo "  relinked: ${1}/${filename}"
       fi
     elif [ -e "$dest_file" ]; then
       echo "  skipping (file exists, not a symlink): ${1}/${filename}"
