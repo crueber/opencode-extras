@@ -32,6 +32,7 @@ Skills are loaded into a conversation on demand via the `skill` tool. Each skill
 | `acli-jira` | Reference for working with Jira via the acli CLI - viewing, searching, creating, editing, transitioning, and commenting on tickets |
 | `solidjs-conventions` | Best conventions for writing SolidJS front ends - signals, reactivity, control flow, stores, effects, and component patterns |
 | `golang-conventions` | Idiomatic Go conventions for solid engineering discipline - error handling, interfaces, concurrency, testing, naming, and project structure |
+| `ruby-conventions` | Idiomatic Ruby conventions for solid engineering discipline - naming, error handling, blocks, testing, metaprogramming, and project structure |
 
 ## Usage
 
