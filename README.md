@@ -30,6 +30,7 @@ Skills are loaded into a conversation on demand via the `skill` tool. Each skill
 | `finishing-development-branch` | Verifies tests and presents structured merge/PR/discard options with worktree cleanup |
 | `audiobookshelf-api` | Reference for the Audiobookshelf REST API - auth, all endpoint groups, filtering, pagination, and Socket.io events |
 | `acli-jira` | Reference for working with Jira via the acli CLI - viewing, searching, creating, editing, transitioning, and commenting on tickets |
+| `solidjs-conventions` | Best conventions for writing SolidJS front ends - signals, reactivity, control flow, stores, effects, and component patterns |
 
 ## Usage
 
