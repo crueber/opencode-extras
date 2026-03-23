@@ -5,6 +5,7 @@
     "websearch": "allow"
   },
   "plugin": [
-    "opentmux"
+    "opentmux",
+    "opencode-claude-auth"
   ]
 }
