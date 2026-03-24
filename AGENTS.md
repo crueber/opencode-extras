@@ -4,15 +4,17 @@ Guidance for agentic coding agents working in this repository.
 
 ## What This Repo Is
 
-A personal collection of [OpenCode](https://opencode.ai) modes and skills, managed as a single repo and symlinked into `~/.config/opencode` via `install.sh`. There is no build system, no package manager, and no test suite. All content is shell scripts and Markdown.
+A personal collection of [OpenCode](https://opencode.ai) modes and skills, also compatible with [Claude Code](https://claude.ai/code). Managed as a single repo. Content is installed via `install.sh` (OpenCode) or `install-claude.sh` (Claude Code). There is no build system, no package manager, and no test suite. All content is shell scripts and Markdown.
 
 ## Repository Structure
 
 ```
 agents/                       # Custom agent modes (.md files with YAML frontmatter)
+commands/                     # Custom slash commands
 skills/<skill-name>/SKILL.md  # Reusable skills, one per subdirectory
-install.sh                    # Symlinks agents/ and skills/ into ~/.config/opencode
-remove.sh                     # Removes those symlinks
+install.sh                    # Symlinks agents/, commands/, and skills/ into ~/.config/opencode
+install-claude.sh             # Installs into ~/.claude (symlinks commands/skills, transforms agents)
+remove.sh                     # Removes the OpenCode symlinks
 README.md                     # Human-facing documentation
 AGENTS.md                     # This file
 ```
@@ -25,15 +27,20 @@ There is no build step, no test runner, and no linter. Manual verification:
 # Verify the install script runs cleanly (safe to re-run)
 ./install.sh
 
+# Verify the Claude Code install script runs cleanly (safe to re-run)
+./install-claude.sh
+
 # Verify the remove script runs cleanly (safe to re-run)
 ./remove.sh
 
 # Check shell scripts for syntax errors
 bash -n install.sh
+bash -n install-claude.sh
 bash -n remove.sh
 
 # Check that a new skill symlink was created correctly
 ls -la ~/.config/opencode/skills/
+ls -la ~/.claude/skills/
 ```
 
 There are no single-test or unit-test commands — this repo has no automated tests.
@@ -133,16 +140,17 @@ description: One or two sentence description loaded by the skill tool
 2. Add YAML frontmatter with `name` and `description`
 3. Write the skill body following the conventions above
 4. Add a row to the Skills table in `README.md`
-5. Run `./install.sh` to verify the symlink is created correctly
+5. Run `./install.sh` and `./install-claude.sh` to verify symlinks are created correctly
 6. Commit both the new skill and the README update together
 
 ## Adding a New Mode
 
 1. Create `agents/<name>.md`
-2. Add YAML frontmatter with `description`, `temperature`, and `tools`
+2. Add YAML frontmatter with `description`, `temperature`, and `tools` (OpenCode format)
 3. Write the mode body following the conventions above
-4. Run `./install.sh` to verify the symlink is created correctly
-5. Commit the new mode file
+4. Run `./install.sh` to verify the OpenCode symlink is created correctly
+5. Run `./install-claude.sh` to verify the transformed agent file is generated correctly
+6. Commit the new mode file
 
 ## Worktree Preference
 
