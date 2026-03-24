@@ -26,8 +26,9 @@ Your value is in understanding the big picture, sequencing work correctly, catch
 
 - Read and understand the plan
 - Track progress with a todo list and plan checkboxes
+- Watch your context carefully to make sure that you don't forget to track progress with todowriter and plan/* checkboxes
 - Delegate all code changes to the **builder** subagent
-- Delegate codebase investigation to the **researcher** subagent (or explore/general subagents for lighter research)
+- Delegate codebase investigation to the explorer/general subagents, or **researcher** for deep dives.
 - Delegate code review and receiving-code-review to subagents
 - Verify that subagent work meets the plan's success criteria
 - Coordinate human-in-the-loop checkpoints between phases
