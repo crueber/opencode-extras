@@ -4,7 +4,7 @@ Guidance for agentic coding agents working in this repository.
 
 ## What This Repo Is
 
-A personal collection of [OpenCode](https://opencode.ai) modes and skills, also compatible with [Claude Code](https://claude.ai/code). Managed as a single repo. Content is installed via `install.sh` (OpenCode) or `install-claude.sh` (Claude Code). There is no build system, no package manager, and no test suite. All content is shell scripts and Markdown.
+A personal collection of [OpenCode](https://opencode.ai) modes and skills, also compatible with [Claude Code](https://claude.ai/code) and Pi. Managed as a single repo. Content is installed via `install.sh <target>` with optional compatibility wrappers. There is no build system, no package manager, and no test suite. All content is shell scripts and Markdown.
 
 ## Repository Structure
 
@@ -12,8 +12,8 @@ A personal collection of [OpenCode](https://opencode.ai) modes and skills, also 
 agents/                       # Custom agent modes (.md files with YAML frontmatter)
 commands/                     # Custom slash commands
 skills/<skill-name>/SKILL.md  # Reusable skills, one per subdirectory
-install.sh                    # Symlinks agents/, commands/, and skills/ into ~/.config/opencode
-install-claude.sh             # Installs into ~/.claude (symlinks commands/skills, transforms agents)
+install.sh                    # Unified installer entrypoint: ./install.sh <target>
+install-claude.sh             # Thin wrapper that invokes ./install.sh claude
 remove.sh                     # Removes the OpenCode symlinks
 README.md                     # Human-facing documentation
 AGENTS.md                     # This file
@@ -24,10 +24,12 @@ AGENTS.md                     # This file
 There is no build step, no test runner, and no linter. Manual verification:
 
 ```sh
-# Verify the install script runs cleanly (safe to re-run)
-./install.sh
+# Verify installer targets run cleanly (safe to re-run)
+./install.sh opencode
+./install.sh claude
+./install.sh pi
 
-# Verify the Claude Code install script runs cleanly (safe to re-run)
+# Verify the Claude compatibility wrapper runs cleanly (safe to re-run)
 ./install-claude.sh
 
 # Verify the remove script runs cleanly (safe to re-run)
@@ -43,7 +45,7 @@ ls -la ~/.config/opencode/skills/
 ls -la ~/.claude/skills/
 ```
 
-There are no single-test or unit-test commands — this repo has no automated tests.
+There are no single-test or unit-test commands - this repo has no automated tests.
 
 ## Shell Script Conventions (`install.sh`, `remove.sh`)
 
@@ -56,7 +58,7 @@ There are no single-test or unit-test commands — this repo has no automated te
 - Use `[ ]` for file tests, `[[ ]]` for string/pattern comparisons
 - Guard array iteration against empty globs: `[ -e "$file" ] || continue`
 - Echo output is prefixed with two spaces for indentation: `echo "  linked: ..."`
-- Scripts must be idempotent — running them multiple times must be safe
+- Scripts must be idempotent - running them multiple times must be safe
 
 ## Mode File Conventions (`agents/*.md`)
 
@@ -102,13 +104,13 @@ description: One or two sentence description loaded by the skill tool
 ```
 
 - `name` must match the subdirectory name exactly
-- `description` is shown when the skill is listed — make it self-contained and searchable
+- `description` is shown when the skill is listed - make it self-contained and searchable
 - The body follows the same Markdown conventions as modes
 - Skills are loaded on demand; write them to be self-contained with no assumed context
 - Announce usage at the start: `"I'm using the <skill-name> skill to..."`
 - Include a Quick Reference table and Example Workflow section where appropriate
 - Include explicit **Never** / **Always** red-flag sections for critical safety rules
-- Remove all project-specific or person-specific references — skills must be generic
+- Remove all project-specific or person-specific references - skills must be generic
 
 ### Skill naming
 
@@ -124,7 +126,7 @@ description: One or two sentence description loaded by the skill tool
 ## General Editing Rules
 
 - Never add AI attribution, co-author lines, or "Generated with" comments to any file
-- Fix broken things immediately — do not defer obvious issues to a follow-up
+- Fix broken things immediately - do not defer obvious issues to a follow-up
 - Prefer editing existing files over creating new ones
 - Do not create documentation files unless explicitly requested
 - Do not use emojis unless the user explicitly asks for them
@@ -140,7 +142,7 @@ description: One or two sentence description loaded by the skill tool
 2. Add YAML frontmatter with `name` and `description`
 3. Write the skill body following the conventions above
 4. Add a row to the Skills table in `README.md`
-5. Run `./install.sh` and `./install-claude.sh` to verify symlinks are created correctly
+5. Run `./install.sh opencode` and `./install.sh claude` to verify symlinks are created correctly
 6. Commit both the new skill and the README update together
 
 ## Adding a New Mode
@@ -148,8 +150,8 @@ description: One or two sentence description loaded by the skill tool
 1. Create `agents/<name>.md`
 2. Add YAML frontmatter with `description`, `temperature`, and `tools` (OpenCode format)
 3. Write the mode body following the conventions above
-4. Run `./install.sh` to verify the OpenCode symlink is created correctly
-5. Run `./install-claude.sh` to verify the transformed agent file is generated correctly
+4. Run `./install.sh opencode` to verify the OpenCode symlink is created correctly
+5. Run `./install.sh claude` (or `./install-claude.sh`) to verify the transformed agent file is generated correctly
 6. Commit the new mode file
 
 ## Worktree Preference
