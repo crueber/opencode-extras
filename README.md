@@ -1,3 +1,9 @@
+# Archival Note
+
+I am archiving this repo. My agent skills are now located in my [dotfiles](https://github.com/crueber/dotfiles/tree/main/agents/.agents/skills) repository. I am using more than just `opencode` these days, and this new location makes them available to `codex`, `omp`, and `opencode`. On top of that, a lot of the skills I had been using are no longer necessary with model advancements.
+
+Good luck in the AI era!
+
 # opencode-extras
 
 Personal collection of custom [OpenCode](https://opencode.ai) commands, modes, and skills. Also compatible with [Claude Code](https://claude.ai/code) via a separate install script. Everything is managed in a single repo.
